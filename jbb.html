@@ -4,36 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="jbb.css" rel="stylesheet">
 </head>
 <body>
+    <div id="produk-container"></div>
+
     <script>
         const produk = [
             {
-                nama: "Bolu ketan",
+                nama: "makanan",
                 harga: 20000,
                 gambar: "a.jpg"
             },
             {
-                nama: "Bolu pisang",
+                nama: "tokopedia",
                 harga: 25000,
                 gambar: "c.jpg"
             },
             {
-                nama: "Bolu keju",
+                nama: "Toko sepatu",
                 harga: 30000,
                 gambar: "k.jpg"
             }
         ];
-         tampilkan = produk.map((item) => {
-            return `
-            <div class="card">
-                <div class="card-title">${item.nama}</div>
-                <h3>${item.harga}</h3>
-                <img src="${item.gambar}">
-                <button class="Beli">Beli</button>
-            `;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('produk-container');
+            const tampilkan = produk.map((item) => {
+                return `
+                    <div class="card">
+                        <div class="card-title">${item.nama}</div>
+                        <h3>${item.harga}</h3>
+                        <img src="${item.gambar}" alt="${item.nama}">
+                        <button class="Beli">Beli</button>
+                    </div>
+                `;
+            }).join('');
+            container.innerHTML = tampilkan;
         });
-        document.write(tampilkan);
     </script>
-</body>
-</html>
+    </body>
+    </html>
